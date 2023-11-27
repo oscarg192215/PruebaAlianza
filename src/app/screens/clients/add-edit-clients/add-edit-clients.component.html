@@ -1,132 +1,66 @@
-<p-dialog
-  header="{{ modalType }} Client"
-  [(visible)]="displayAddEditModal"
-  [modal]="true"
-  [style]="{ width: '50vw' }"
-  [draggable]="false"
-  [resizable]="false"
-  (onHide)="closeModal()"
-  [style]="{'text-align': 'center'}"
->
-  <form [formGroup]="clientForm"  (ngSubmit)="addEditClient()" novalidate class=".user-form"  >
+<p-dialog header="{{ modalType }} Client" [(visible)]="displayAddEditModal" [modal]="true" [style]="{ width: '50vw' }"
+  [draggable]="false" [resizable]="false" (onHide)="closeModal()" [style]="{'text-align': 'center'}">
+  <form [formGroup]="clientForm" (ngSubmit)="addEditClient()" novalidate class=".user-form">
     <div class="field">
       <label class="block" for="sharedkey" [style]="{'width': '50%'}">Shared Key&emsp;&nbsp;&nbsp;</label>
-      <input type="text" pInputText id="sharedkey" formControlName="sharedkey" [style]="{'width': '50%'}" required=""/>
-      <small
-        class="p-error block"
-        *ngIf="
+      <input type="text" pInputText id="sharedkey" formControlName="sharedkey" [style]="{'width': '50%'}" required="" />
+      <small class="p-error block" *ngIf="
           clientForm.controls['sharedkey'].invalid &&
           clientForm.controls['sharedkey'].dirty
-        "
-        >Shared Key is required</small
-      >
+        ">Shared Key is required</small>
     </div>
     <div class="field">
       <label class="block" for="businessid" [style]="{'width': '50%'}">Business ID&emsp;&nbsp;&nbsp;</label>
-      <input type="text" pInputText id="businessid" formControlName="businessid" [style]="{'width': '50%'}"/>
-      <small
-        class="p-error block"
-        *ngIf="
+      <input type="text" pInputText id="businessid" formControlName="businessid" [style]="{'width': '50%'}" />
+      <small class="p-error block" *ngIf="
           clientForm.controls['businessid'].invalid &&
           clientForm.controls['businessid'].dirty
-        "
-        >Business ID is required</small
-      >
+        ">Business ID is required</small>
     </div>
     <div class="field">
-      <label class="block" for="email"[style]="{'width': '50%'}">E-mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <input type="text" pInputText id="email" formControlName="email" [style]="{'width': '50%'}"/>
-      <small
-        class="p-error block"
-        *ngIf="
+      <label class="block" for="email"
+        [style]="{'width': '50%'}">E-mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <input type="text" pInputText id="email" formControlName="email" [style]="{'width': '50%'}" />
+      <small class="p-error block" *ngIf="
           clientForm.controls['email'].invalid &&
           clientForm.controls['email'].dirty
-        "
-        >E-mail is required</small
-      >
+        ">E-mail is required</small>
     </div>
     <div class="field">
-      <label class="block" for="phone" [style]="{'width': '50%'}">Phone&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <input type="text" pInputText id="phone" formControlName="phone" onlyNumber [style]="{'width': '50%'}"/>
-      <small
-        class="p-error block"
-        *ngIf="
+      <label class="block" for="phone"
+        [style]="{'width': '50%'}">Phone&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <input type="text" pInputText id="phone" formControlName="phone" onlyNumber [style]="{'width': '50%'}" />
+      <small class="p-error block" *ngIf="
           clientForm.controls['phone'].invalid &&
           clientForm.controls['phone'].dirty
-        "
-        >Phone is required</small
-      >
+        ">Phone is required</small>
     </div>
 
     <div class="field">
-      <label class="block" for="startdate" [style]="{'width': '50%'}">Start Date&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <p-calendar formControlName="startdate" [touchUI]="true" [readonlyInput]="true"  [showIcon]="true"  [style]="{'width': '50%'}" dateFormat="dd/mm/yy"></p-calendar>
-      <small
-        class="p-error block"
-        *ngIf="
+      <label class="block" for="startdate" [style]="{'width': '50%'}">Start
+        Date&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <p-calendar formControlName="startdate" [touchUI]="true" [readonlyInput]="true" [showIcon]="true"
+        [style]="{'width': '50%'}" dateFormat="dd/mm/yy"></p-calendar>
+      <small class="p-error block" *ngIf="
           clientForm.controls['startdate'].invalid &&
           clientForm.controls['startdate'].dirty
-        "
-        >Start Date is required</small
-      >
+        ">Start Date is required</small>
     </div>
-      
+
     <div class="field">
-      <label class="block" for="enddate" [style]="{'width': '50%'}">End Date&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <p-calendar formControlName="enddate" [touchUI]="true" [readonlyInput]="true"  [showIcon]="true"  [style]="{'width': '50%'}" dateFormat="dd/mm/yy"></p-calendar>
-      <small
-        class="p-error block"
-        *ngIf="
+      <label class="block" for="enddate" [style]="{'width': '50%'}">End
+        Date&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <p-calendar formControlName="enddate" [touchUI]="true" [readonlyInput]="true" [showIcon]="true"
+        [style]="{'width': '50%'}" dateFormat="dd/mm/yy"></p-calendar>
+      <small class="p-error block" *ngIf="
           clientForm.controls['enddate'].invalid &&
           clientForm.controls['enddate'].dirty
-        "
-        >End Date  is required</small
-      >
+        ">End Date is required</small>
     </div>
-    <div  [style]="{'text-align': 'rigth',  'margin-left': '120px'}">
-      <button pButton type="submit" class="p-button-success" label="Add" [disabled]="clientForm.invalid"></button>&nbsp;&nbsp;
+    <div [style]="{'text-align': 'rigth',  'margin-left': '120px'}">
+      <button pButton type="submit" class="p-button-success" label="Submit"
+        [disabled]="clientForm.invalid"></button>&nbsp;&nbsp;
       <button pButton type="button" label="Cancel" (click)="closeModal()"></button>
     </div>
-   
   </form>
-
-
-    <!-- <form [formGroup]="clientForm" (ngSubmit)="addEditClient()" novalidate [style]="{'text-align-last': 'center'}">
-      <div class="field">
-        <label for="name" class="block">First Name</label>
-        <input type="text" pInputText placeholder="First Name" formControlName="name" />
-        <small class="p-error block" *ngIf="
-            clientForm.get('name')?.invalid && clientForm.get('name')?.dirty
-          ">
-          name is required</small>
-      </div>
-     
-        <div class="field">
-          <label for="email" class="block">email</label>
-          <input type="text" pInputText placeholder="PostCode" formControlName="email" />
-          <small class="p-error block" *ngIf="
-              clientForm.get('email')?.invalid &&
-              clientForm.get('email')?.dirty
-            ">
-            PostCode is required</small>
-        </div>
-  
-      <button pButton type="submit" label="Submit" [disabled]="clientForm.invalid"></button>
-      <button pButton type="button" label="Cancel" (click)="closeModal()"></button>
-    </form> -->
-
-
-  <!-- <ng-template pTemplate="footer">
-    <p-button
-      (click)="closeModal()"
-      label="Cancel"
-      styleClass="p-button-text"
-    ></p-button>
-
-    <p-button
-      (click)="addEditClient()"
-      label="{{ modalType }}"
-      [disabled]="clientForm.invalid"
-    ></p-button>
-  </ng-template> -->
 </p-dialog>
