@@ -11,7 +11,6 @@ export class ClientService {
 
   private _refresh$ = new Subject<void>(); 
 
-  // private baseUrl = 'http://localhost:3000';
   private baseUrl =  environment.endpoint;
   private myAppUrl: string = environment.endpoint;
   private myApiUrl: string = 'api/Cliente/';
@@ -22,16 +21,13 @@ return this._refresh$;
   }
 
   getClients(): Observable<Client[]> {
-    // return this.http.get<Client[]>(`${this.baseUrl}api/cliente`);
     return this.http.get<Client[]>(`${this.myAppUrl}${this.myApiUrl}`);
   }
 
   addEditClient(postData: any, selectedPdt: any) {
     if (!selectedPdt) {
-      // return this.http.post(`${this.baseUrl}api/cliente`, postData);
       return this.http.post<Client>(`${this.myAppUrl}${this.myApiUrl}`, postData);
     } else {
-      // return this.http.put(`${this.baseUrl}api/cliente/${selectedPdt.id}`, postData);
       return this.http.put(`${this.myAppUrl}${this.myApiUrl}${selectedPdt.id}`, postData)
       .pipe(
         tap(() =>{
@@ -43,7 +39,6 @@ return this._refresh$;
   }
 
   deleteClient(clientId: number) {
-    // return this.http.delete(`${this.baseUrl}api/cliente/${clientId}`);
     return this.http.delete(`${this.myAppUrl}${this.myApiUrl}${clientId}`);
   }
 }
