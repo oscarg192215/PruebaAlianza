@@ -1,0 +1,19 @@
+:host >>> .client-form .p-component {
+    width: 100%;
+  }
+
+  ::ng-deep .ui-calendar {
+    width: 100%;
+  }
+  
+  ::ng-deep .ui-calendar .ui-inputtext {
+    width: calc(100% - 2.357em);
+  }
+
+  :host >>> .user-form {
+    width: 30%;
+  }
+  
+  :host >>> .p-inputtext {
+    width: 100%;
+  }

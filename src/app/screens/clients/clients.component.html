@@ -1,0 +1,50 @@
+<p-card header="Clients">
+  <div class="flex justify-content-between">
+    <p-button label=" + New" (click)="showAddModal()"></p-button>
+    <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2"
+      pTooltip="XLS" tooltipPosition="bottom"></button>
+  </div>
+  <p-table [value]="clients" [paginator]="true" [rows]="5" #dt [columns]="cols" [value]="clients"
+    selectionMode="multiple" [(selection)]="selectedClient"  [globalFilterFields]="['sharedkey', 'businessid', 'email', 'phone', 'startdate']">
+    <ng-template pTemplate="caption">
+      <div style="text-align: right">
+        <i class="pi pi-search" style="margin:4px 4px 0 0">
+        </i>
+        <input type="text"  placeholder="Search"
+          (input)="dt.filterGlobal($any($event.target).value, 'contains')" style="width:auto" />
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Shared Key</th>
+        <th>Business ID</th>
+        <th>E-mail</th>
+        <th>Phone</th>
+        <th>Data Added</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-client>
+      <tr>
+        <td>{{ client.sharedkey }}</td>
+        <td>{{ client.businessid }}</td>
+        <td>{{ client.email }}</td>
+        <td>{{ client.phone }}</td>
+        <td>{{ client.startdate | date :'dd/MM/yyyy' }}</td>
+        <td>
+          <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+            (click)="showEditModal(client)"></button>
+          <button pButton icon="pi pi-trash" class="p-button-rounded p-button-warning"
+            (click)="deleteClient(client)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
+
+
+<app-add-edit-clients [displayAddEditModal]="displayAddEditModal" [selectedClient]="selectedClient"
+  (clickClose)="hideAddModal($event)" (clickAddEdit)="saveorUpdateClientList($event)"></app-add-edit-clients>
+
+<p-confirmDialog header="Delete"></p-confirmDialog>
+<p-toast position="bottom-right"></p-toast>

@@ -1,0 +1,25 @@
+.p-datatable-thead {
+    display: block;
+
+    tr {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
+  }
+
+  .p-datatable-tbody {
+    display: block;
+
+    tr {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
+
+    td {
+      display: flex;
+      flex: 1 1 0;
+      align-items: center;
+    }
+  }

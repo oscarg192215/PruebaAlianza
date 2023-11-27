@@ -1,0 +1,38 @@
+<div class="sidenav-body-container">
+  <div class="sidenav-body">
+    <h1>Alianza</h1>
+
+    <app-sidenav-link >
+      <mat-icon>perm_identity</mat-icon>
+      Clients
+    </app-sidenav-link>
+
+    <app-sidenav-link routerLink="Clients">
+
+      Clients
+    </app-sidenav-link>
+
+    <app-sidenav-link routerLink="ClientsLookHistory">
+
+     Client look history
+    </app-sidenav-link>
+
+    <app-sidenav-link routerLink="EmergencyPinConfiguration">
+
+     Emergency PIN configuration
+    </app-sidenav-link>
+
+    <app-sidenav-link routerLink="EmergencyPinHistory">
+
+      Emergency PIN history
+    </app-sidenav-link>
+  </div>
+</div>
+
+<button
+  class="toggle-button"
+  (click)="this.sidenavService.toggleSidenav()"
+  [class.is-flipped]="sidenavService.isExpanded"
+>
+  <mat-icon icon>chevron_right</mat-icon>
+</button>

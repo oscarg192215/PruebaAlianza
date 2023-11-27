@@ -1,0 +1,40 @@
+{
+  "clients": [
+    {
+      "sharedkey": "ee",
+      "businessid": "werwr",
+      "email": "ww",
+      "phone": "453535",
+      "startdate": "2023-11-24",
+      "enddate": "2023-11-24",
+      "id": 2
+    },
+    {
+      "sharedkey": "ssss",
+      "businessid": "ssss",
+      "email": "sss",
+      "phone": "453535",
+      "startdate": "2023-11-15T05:00:00.000Z",
+      "enddate": "2023-11-30T05:00:00.000Z",
+      "id": 3
+    },
+    {
+      "sharedkey": "dddd",
+      "businessid": "ddd",
+      "email": "ddd",
+      "phone": "22222",
+      "startdate": "2023-11-08T05:00:00.000Z",
+      "enddate": "2023-11-30T05:00:00.000Z",
+      "id": 4
+    },
+    {
+      "sharedkey": "hhhh",
+      "businessid": "kkkkk",
+      "email": "rrrrrr",
+      "phone": "5555555",
+      "startdate": "2023-11-15T05:00:00.000Z",
+      "enddate": "2023-11-25T05:00:00.000Z",
+      "id": 6
+    }
+  ]
+}
