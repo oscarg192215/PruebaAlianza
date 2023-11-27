@@ -39,7 +39,6 @@ export class OnlyNumberDirective implements ControlValueAccessor {
         this.value = value;
     }
 
-    // ControlValueAccessor Interface
     registerOnChange(fn: any): void {
         this.onChange = fn;
     }
